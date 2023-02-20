@@ -14,14 +14,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { TruncatePipe } from './filter/limit.filter';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductsListComponent,
     CartComponent,
-    HeaderComponent,
-    TruncatePipe
+    HeaderComponent
   ],
   imports: [
     AlertModule.forRoot(),
@@ -33,7 +35,10 @@ import { TruncatePipe } from './filter/limit.filter';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

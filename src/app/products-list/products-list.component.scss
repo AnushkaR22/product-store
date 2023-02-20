@@ -33,14 +33,14 @@
     place-content: center space-between;
     align-items: center;
 
- p {
+    p {
         font-weight: 700;
         opacity: .5;
         margin: auto 0rem;
     }
 }
 
-ngb-rating{
+ngb-rating {
     color: #ef6c00eb;
     font-size: 30px;
 }
@@ -56,4 +56,24 @@ p {
 .add-to-cart-btn .mat-mdc-raised-button {
     width: 100%;
     color: #fff;
+}
+
+.mat-mdc-card-footer {
+    display: block;
+    margin: 0 -16px -16px -16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+        opacity: .7;
+        cursor: pointer;
+    }
+
+    span {
+        padding: 0rem 0.18rem;
+    }
 }
