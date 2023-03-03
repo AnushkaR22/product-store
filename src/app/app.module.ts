@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule  } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToastrModule } from 'ngx-toastr';
+import { ProductService } from './services/product/product.service';
+import { CartService } from './services/cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { ToastrModule } from 'ngx-toastr';
     MatTooltipModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
+  providers: [ProductService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

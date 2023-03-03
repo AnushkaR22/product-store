@@ -23,12 +23,14 @@ export class CartComponent implements OnInit {
   getCartProducts() {
     this.productQuantity = 0;
     this.cartData = JSON.parse(localStorage.getItem('cart_items'));
-    this.cartData.forEach((item: any) => {
-      if (item.product.id) {
-        this.productQuantity += item.quantity;
-      }
-    });
-    this.calculateTotal();
+    if (this.cartData) {
+      this.cartData.forEach((item: any) => {
+        if (item.product.id) {
+          this.productQuantity += item.quantity;
+        }
+      });
+      this.calculateTotal();
+    }
   }
 
   // increment quantity of product
@@ -55,10 +57,12 @@ export class CartComponent implements OnInit {
   // total amount for all the products in cart
   calculateTotal() {
     this.cartTotal = 0;
-    this.cartData.forEach((product: any) => {
-      product.product.total = product.product.price * product.quantity;
-      this.cartTotal += product.product.total;
-    })
+    if (this.cartData) {
+      this.cartData.forEach((product: any) => {
+        product.product.total = product.product.price * product.quantity;
+        this.cartTotal += product.product.total;
+      });
+    }
   }
 
   // delete an item from cart

@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
@@ -8,7 +9,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      schemas: [  
+        CUSTOM_ELEMENTS_SCHEMA
+      ],
     })
     .compileComponents();
 
@@ -20,4 +24,8 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should show productQuantity from @Input() property', () => {
+  //   expect(+fixture.nativeElement.querySelector('.badge').innerText).toEqual(component.productQuantity );
+  // });
 });
