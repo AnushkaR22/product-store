@@ -22,7 +22,7 @@
                             ADD TO CART
                         </button>
                         <span class="icons" *ngFor="let cart of cartData; let index = index">
-                            <ng-container *ngIf="products.id === cart.product.id">
+                            <ng-container *ngIf="products.id === cart.product.id && productInCart(products)">
                                 <mat-icon (click)="decrementQty(index)">remove</mat-icon>
                                 <span class="quantity">{{cart?.quantity}}</span>
                                 <mat-icon (click)="incrementQty(index)">add</mat-icon>

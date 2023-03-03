@@ -36,14 +36,16 @@ export class ProductsListComponent implements OnInit {
     })
   }
 
+  // get cart products from localstorage 
   getCartProducts() {
     this.productQuantity = 0;
     this.cartData = JSON.parse(localStorage.getItem('cart_items'));
-    this.cartData.forEach((item: any) => {
-      this.productQuantity += item.quantity;
-    });
+    if (this.cartData) {
+      this.cartData.forEach((item: any) => {
+        this.productQuantity += item.quantity;
+      });
+    }
   }
-
 
   // adding product to cart
   addToCart(product: Products) {
@@ -58,8 +60,10 @@ export class ProductsListComponent implements OnInit {
   }
 
   // check weather the product is present in cart or not
-  productInCart(product) {
-    return this.cartData.findIndex(p => p.product.id == product.id) != -1;
+  productInCart(product: Products) {
+    if (this.cartData) {
+      return this.cartData.findIndex(p => p.product.id == product.id) != -1;
+    }
   }
 
   // delete product from cart
